@@ -1,0 +1,228 @@
+Capturing and Analyzing Wi-Fi Deauthentication Frames using NodeMCU and Monitor Mode
+📌 Project Overview
+
+This project demonstrates the generation, transmission, capture, and analysis of IEEE 802.11 deauthentication management frames within a controlled laboratory environment. The objective is to study wireless management frame vulnerabilities and understand how deauthentication attacks operate at the protocol level.
+
+The system uses a NodeMCU ESP8266 microcontroller for packet injection and a monitor mode-enabled wireless adapter to capture raw Wi-Fi traffic. Captured packets are analyzed using Wireshark to inspect frame subtype, MAC addresses, and reason codes.
+
+⚠️ This project is developed strictly for educational and research purposes in an authorized and isolated test environment.
+
+🎯 Objectives
+
+Study IEEE 802.11 management frame structure
+
+Generate deauthentication frames using ESP8266
+
+Capture wireless packets in monitor mode
+
+Analyze deauthentication frame fields in Wireshark
+
+Understand vulnerabilities in unprotected management frames
+
+Highlight the importance of WPA3 and IEEE 802.11w
+
+🏗 System Architecture
+
+The system consists of four main components:
+
+Packet Injection Device
+
+NodeMCU ESP8266
+
+Flashed with ESP8266 Deauther firmware
+
+Generates spoofed deauthentication frames
+
+Wireless Medium
+
+IEEE 802.11 radio frequency environment
+
+Broadcast transmission of management frames
+
+Target Network
+
+Authorized Wi-Fi Access Point
+
+Connected client devices
+
+Monitoring System
+
+Kali Linux
+
+TP-Link Archer T2U Plus (RTL8821AU)
+
+Monitor Mode enabled
+
+Wireshark for packet analysis
+
+🛠 Hardware Requirements
+
+NodeMCU ESP8266 (ESP-12E)
+
+TP-Link Archer T2U Plus (RTL8821AU chipset)
+
+Laptop running Kali Linux
+
+Authorized Wi-Fi Access Point
+
+Test mobile device
+
+💻 Software Requirements
+
+Kali Linux
+
+Arduino IDE
+
+ESP8266 Deauther Firmware
+
+Wireshark
+
+RTL8821AU driver
+
+Monitor mode activation scripts
+
+⚙️ Installation & Setup
+1️⃣ Install Kali Linux
+
+Install Kali Linux as the primary penetration testing environment.
+
+2️⃣ Install Arduino IDE
+
+Download from:
+https://www.arduino.cc/en/software
+
+Add ESP8266 board manager URL:
+
+https://raw.githubusercontent.com/SpacehuhnTech/arduino/main/package_spacehuhn_index.json
+3️⃣ Flash ESP8266 Deauther Firmware
+
+Repository:
+https://github.com/SpacehuhnTech/esp8266_deauther
+
+Steps:
+
+Open firmware in Arduino IDE
+
+Select NodeMCU ESP8266 board
+
+Choose correct COM port
+
+Upload firmware
+
+Confirm hotspot named “pwned”
+
+4️⃣ Install RTL8821AU Driver
+
+Repository:
+https://github.com/morrownr/8821au-20210708
+
+git clone https://github.com/morrownr/8821au-20210708.git
+cd 8821au-20210708
+sudo ./install-driver.sh
+5️⃣ Enable Monitor Mode
+
+Repository:
+https://github.com/morrownr/Monitor_Mode
+
+sudo ./start-mon.sh wlan0
+
+Verify:
+
+iwconfig
+
+Interface should change to wlan0mon.
+
+6️⃣ Capture Packets using Wireshark
+
+Launch:
+
+wireshark
+
+Select wlan0mon
+
+Filter deauthentication frames:
+
+wlan.fc.type_subtype == 0x0c
+🧪 Experimental Procedure
+
+Connect test device to NodeMCU hotspot.
+
+Access web interface at 192.168.4.1.
+
+Select target access point.
+
+Start deauthentication attack.
+
+Observe client disconnection.
+
+Capture and analyze packets in Wireshark.
+
+📊 Results
+
+Deauthentication frames were successfully generated.
+
+Target client devices were disconnected.
+
+Wireshark captured spoofed management frames.
+
+Frame subtype confirmed as deauthentication.
+
+Source and destination MAC addresses were verified.
+
+Demonstrated vulnerability of unprotected management frames.
+
+⚠ Challenges Faced
+
+Driver compatibility issues with RTL8821AU
+
+Monitor mode configuration instability
+
+Firmware upload configuration errors
+
+Filtering correct frames in Wireshark
+
+Wireless interference from nearby networks
+
+🚧 Limitations
+
+Limited to Layer 2 (Data Link Layer) analysis
+
+Conducted only in controlled environment
+
+No automated intrusion detection implemented
+
+Does not test WPA3 with MFP enabled
+
+🔮 Future Enhancements
+
+Develop real-time wireless IDS
+
+Compare WPA2 vs WPA3 security
+
+Implement detection mechanisms
+
+Add logging and visualization dashboard
+
+Analyze IEEE 802.11w protection effectiveness
+
+🔐 Ethical Considerations
+
+This project was conducted:
+
+Only on authorized devices
+
+Within a controlled laboratory setup
+
+For academic research purposes
+
+Without targeting public or unauthorized networks
+
+📚 References
+
+IEEE 802.11 Standard
+
+Spacehuhn ESP8266 Deauther
+
+morrownr RTL8821AU Driver
+
+Wireshark Documentation
