@@ -1,0 +1,11 @@
+# Enable monitor mode
+sudo ./start-mon.sh wlan0
+
+# Check interface
+iwconfig
+
+# Launch Wireshark
+wireshark
+
+# Filter deauthentication packets
+wlan.fc.type_subtype == 0x0c
