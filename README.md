@@ -1,3 +1,6 @@
+![Status](https://img.shields.io/badge/status-Completed-brightgreen)
+![Project](https://img.shields.io/badge/project-BCA%20Final-blue)
+![Domain](https://img.shields.io/badge/domain-Cybersecurity-red)
 # Wifi-deauth-analysis
 # 📡 Wi-Fi Deauthentication Analysis using NodeMCU
 
