@@ -26,9 +26,6 @@ This project is for **educational and research purposes only**. All experiments 
 ## 🏗 Architecture
 ![Architecture](Architecture.png)
 
-## 📸 Screenshots
-![Wireshark](Packet Capturing.png)
-![Monitor Mode](MonitorMode (2).png)
 
 ##Node MCU
 ![NodeMCU Board](NodeMCU.png)
