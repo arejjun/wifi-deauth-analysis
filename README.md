@@ -31,4 +31,4 @@ This project is for **educational and research purposes only**. All experiments 
 ![NodeMCU Board](NodeMCU.jpg)
 
 ##tp-link archer t2u plus
-![![tp-link archer t2u plus](tp-linkarchert2uplus.jpg)
+![![tp-link archer t2u plus](TP-LinkArcherT2UPlus.jpg)
