@@ -24,7 +24,7 @@ This project is for **educational and research purposes only**. All experiments 
 - Frame-level inspection (MAC, subtype, reason codes)
 
 ## 🏗 Architecture
-![Architecture](images/architecture.png)
+![Architecture](Architecture.png)
 
 ## 📸 Screenshots
 ![Wireshark](images/wireshark-capture.png)
